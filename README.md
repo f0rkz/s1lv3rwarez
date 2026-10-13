@@ -23,7 +23,7 @@ The original hook follows an F minor / Db / Ab / Eb progression. The intro opens
 
 ![Part II: The Zip Disk Strikes Back](docs/part2.gif)
 
-Press **Space** (or click) to cycle through Parts I–IV. Part II has a chunky plasma, a typed-in ASCII banner that trades off between `f0rkz` and `sp00nz`, an InstallWiz 2.0 dialog copying warez until the disk fills up, and its own soundtrack: a 32-bar, 140 BPM, four-channel tracker-style chip tune in A minor (50 Hz arpeggios, a pulse bass, noise drums and an echoed square lead), also synthesized at startup. Each switch restarts that part's song from the top.
+Press **Space** (or click) to cycle through Parts I–V. Part II has a chunky plasma, a typed-in ASCII banner that trades off between `f0rkz` and `sp00nz`, an InstallWiz 2.0 dialog copying warez until the disk fills up, and its own soundtrack: a 32-bar, 140 BPM, four-channel tracker-style chip tune in A minor (50 Hz arpeggios, a pulse bass, noise drums and an echoed square lead), also synthesized at startup. Each switch restarts that part's song from the top.
 
 ## Part III — LAN Party
 
@@ -38,6 +38,14 @@ A basement LAN in 132 BPM: a spinning wireframe lambda badge, an olive VGUI-styl
 Sixth grade web club: a lab full of brand-new donated IBM PCs, homepages with "under construction" GIFs, then Red Alert — which the teachers discovered too. One day an IBM executive's campus tour walked through just as our teacher jumped up, yelled that he'd nuked us all, and cheered. No more Red Alert after that.
 
 Part IV tells it as an RTS mission: a tile battlefield of blue (us) and red (the teachers) units trading tank fire, a sidebar with ticking credits, a radar sweep and a build queue (HTML, GIF, MIDI… NUKE READY), and an announcement feed that runs from "NEW IBM PCS ACQUIRED" to "ATOM BOMB LAUNCHED" to "MISSION FAILED: NO MORE RED ALERT". The missile arcs in from the silo, the screen whites out and shakes, and our base becomes a crater. The soundtrack is an original 32-bar, 120 BPM industrial march in E minor: distorted power-chord chugs, marching snare rolls, an air-raid siren, a swelling brass line, and a bomb on the downbeat of bar 25.
+
+## Part V — QuakeCon
+
+![Part V: QuakeCon](docs/part5.gif)
+
+The annual August trip to Dallas. Why Dallas? Because the surface of the sun was already booked.
+
+A wireframe Q emblem spins over a scorched sky and a heat-shimmered Dallas skyline (Reunion Tower included). Each time it turns edge-on, the numeral swaps: 1 → II → III → 4 → back to 1. A drop-down console tracks the year and the outside temperature above a stream of obituaries (`sp00nz rides f0rkz's rocket`, `f0rkz turned into hot slag`…), and the announcements run from "WHY DALLAS?" to "THE SURFACE OF THE SUN WAS ALREADY BOOKED" to "SEE YOU NEXT YEAR, DALLAS". The soundtrack is an original 32-bar, 110 BPM dark industrial electro in C minor: an ambient drone and hot wind, metallic clanks, a pounding kick, a sixteenth-note EBM bass and a zapping detuned lead.
 
 ### README GIFs
 

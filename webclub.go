@@ -112,7 +112,7 @@ func (g *Game) drawRA(screen *ebiten.Image) {
 	g.drawSidebar(screen, beats)
 	drawEVA(screen, beats)
 	g.drawScroller(screen, raScrollText)
-	drawHint(screen, "SPACE: PART I")
+	drawHint(screen, "SPACE: PART V")
 	if a := nukeFlash(beats); a > 0 {
 		v := uint8(255 * a * a)
 		vector.DrawFilledRect(screen, 0, 0, virtualWidth, virtualHeight, color.RGBA{v, v, v, v}, false)

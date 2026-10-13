@@ -66,6 +66,10 @@ Press SPACE (or click) to switch parts.
               120 BPM industrial march in E minor
               6th grade, donated IBM PCs, homepages, Red Alert,
               one teacher nuke during an exec tour. No more RA.
+  PART V   .. QUAKECON
+              110 BPM dark industrial electro in C minor
+              Annual trips to Dallas. Why Dallas? The surface
+              of the sun was already booked.
 
 This is a retrospective creative project, not an actual recovered
 historical executable. Graphics and music are generated or embedded
@@ -79,7 +83,7 @@ S1LV3RWAREZ - THE LOST CRACKTRO
 f0rkz + sp00nz | EST. 1998 / RECOVERED 2026
 PART II: THE ZIP DISK STRIKES BACK
 PART III: LAN PARTY
-PART IV: WEB CLUB
+PART IV: WEB CLUB | PART V: QUAKECON
 Windows x64 | Run S1LV3RWAREZ.exe
 SPACE switches parts
 Retrospective creative project, made in 2026.
