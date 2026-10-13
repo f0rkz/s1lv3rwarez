@@ -4,6 +4,8 @@ A deliberately anachronistic cracktro: the intro `f0rkz` and `sp00nz` should hav
 
 ## Project ZIPSTORM
 
+![Part I: The Lost Cracktro](docs/part1.gif)
+
 This vertical slice contains:
 
 - a 320×200 Ebitengine framebuffer presented at 3× native size;
@@ -19,7 +21,17 @@ The original hook follows an F minor / Db / Ab / Eb progression. The intro opens
 
 ## Part II — The Zip Disk Strikes Back
 
+![Part II: The Zip Disk Strikes Back](docs/part2.gif)
+
 Press **Space** (or click) to flip between the original intro and the sequel. Part II has a chunky plasma, a typed-in ASCII banner that trades off between `f0rkz` and `sp00nz`, an InstallWiz 2.0 dialog copying warez until the disk fills up, and its own soundtrack: a 32-bar, 140 BPM, four-channel tracker-style chip tune in A minor (50 Hz arpeggios, a pulse bass, noise drums and an echoed square lead), also synthesized at startup. Each switch restarts that part's song from the top.
+
+### README GIFs
+
+Each part has a hero GIF in `docs/`. Regenerate them by running the real game loop (opens a window, ~10 s per part):
+
+```bash
+S1LV3RWAREZ_GIFS=1 go test -run TestReadmeGIFs .
+```
 
 ## Run
 
