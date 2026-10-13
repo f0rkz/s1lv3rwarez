@@ -244,10 +244,10 @@ func synthDatacenter(sr int) []byte {
 
 		// Fan noise and 60 Hz mains hum, always on.
 		n := noiseSample(&noise)
-		fanLP += .03 * (n - fanLP)
+		fanLP += .015 * (n - fanLP)
 		hum := .03*math.Sin(twoPi*60*t) + .02*math.Sin(twoPi*120*t) + .012*math.Sin(twoPi*180*t)
-		mixL += fanLP*.8 + hum
-		mixR += fanLP*.8 + hum
+		mixL += fanLP*.2 + hum
+		mixR += fanLP*.2 + hum
 
 		if kickT < .4 {
 			k := math.Sin(twoPi*(42*kickT-(140.0/28)*(math.Exp(-kickT*28)-1))) * math.Exp(-kickT*8)

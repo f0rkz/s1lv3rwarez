@@ -333,8 +333,8 @@ func synthQuake(sr int) []byte {
 		drone := (math.Sin(twoPi*t*midiHz(24)) + .6*math.Sin(twoPi*t*midiHz(31)) + .3*math.Sin(twoPi*t*midiHz(36)*(1+.002*math.Sin(t)))) * .07 * amb
 		windLP += (.01 + .008*math.Sin(t*.4)) * (noiseSample(&noise) - windLP)
 		windLP2 += .5 * (windLP - windLP2)
-		mixL += drone + windLP*.9*amb
-		mixR += drone + windLP2*.9*amb
+		mixL += drone + windLP*.25*amb
+		mixR += drone + windLP2*.25*amb
 
 		if kickT < .35 {
 			k := math.Sin(twoPi*(45*kickT-(150.0/22)*(math.Exp(-kickT*22)-1))) * math.Exp(-kickT*8)
