@@ -62,6 +62,10 @@ Press SPACE (or click) to switch parts.
   PART III .. LAN PARTY
               132 BPM big-beat breakbeat in D minor
               HL / SC / CS / TFC, one 10BASE-T hub, zero sleep
+  PART IV  .. WEB CLUB
+              120 BPM industrial march in E minor
+              6th grade, donated IBM PCs, homepages, Red Alert,
+              one teacher nuke during an exec tour. No more RA.
 
 This is a retrospective creative project, not an actual recovered
 historical executable. Graphics and music are generated or embedded
@@ -75,6 +79,7 @@ S1LV3RWAREZ - THE LOST CRACKTRO
 f0rkz + sp00nz | EST. 1998 / RECOVERED 2026
 PART II: THE ZIP DISK STRIKES BACK
 PART III: LAN PARTY
+PART IV: WEB CLUB
 Windows x64 | Run S1LV3RWAREZ.exe
 SPACE switches parts
 Retrospective creative project, made in 2026.

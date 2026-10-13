@@ -134,6 +134,7 @@ func TestSequelSongsAreDeterministicAndBounded(t *testing.T) {
 	}{
 		{"part II", synthSequel, sequelBars, sequelBeatSeconds},
 		{"part III", synthLAN, lanBars, lanBeatSeconds},
+		{"part IV", synthRA, raBars, raBeatSeconds},
 	} {
 		a, b := song.synth(8000), song.synth(8000)
 		if want := int(float64(song.bars*4)*song.beatSeconds*8000) * 4; len(a) != want {
