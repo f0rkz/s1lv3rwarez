@@ -52,6 +52,13 @@ EST. 1998 / RECOVERED 2026
 
 WINDOWS x64 RELEASE
 Run S1LV3RWAREZ.exe to launch the cracktro.
+Press SPACE (or click) to switch parts.
+
+  PART I  .. THE LOST CRACKTRO
+             150 BPM hard trance in F minor
+  PART II .. THE ZIP DISK STRIKES BACK
+             140 BPM tracker chip tune in A minor
+             InstallWiz 2.0 says the disk is full again
 
 This is a retrospective creative project, not an actual recovered
 historical executable. Graphics and music are generated or embedded
@@ -63,7 +70,9 @@ EOF
 cat >"$tmp_dir/FILE_ID.DIZ" <<'EOF'
 S1LV3RWAREZ - THE LOST CRACKTRO
 f0rkz + sp00nz | EST. 1998 / RECOVERED 2026
+PART I + PART II: THE ZIP DISK STRIKES BACK
 Windows x64 | Run S1LV3RWAREZ.exe
+SPACE switches parts
 Retrospective creative project, made in 2026.
 THE SCENE NEVER DIED
 EOF
