@@ -34,11 +34,11 @@ jobs:
       - name: Install Linux native build dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install --yes libasound2-dev libgl1-mesa-dev pkg-config xorg-dev
+          sudo apt-get install --yes libasound2-dev libgl1-mesa-dev pkg-config xauth xvfb xorg-dev
 
       - name: Test and build Linux project
         run: |
-          go test ./...
+          xvfb-run -a go test ./...
           go build ./...
 
       - name: Build Windows release package
