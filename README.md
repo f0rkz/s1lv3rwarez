@@ -19,7 +19,11 @@ The original hook follows an F minor / Db / Ab / Eb progression. The intro opens
 
 ## Part II — The Zip Disk Strikes Back
 
-Press **Space** (or click) to flip between the original intro and the sequel. Part II has a chunky plasma, a typed-in ASCII banner that trades off between `f0rkz` and `sp00nz`, an InstallWiz 2.0 dialog copying warez until the disk fills up, and its own soundtrack: a 32-bar, 140 BPM, four-channel tracker-style chip tune in A minor (50 Hz arpeggios, a pulse bass, noise drums and an echoed square lead), also synthesized at startup. Each switch restarts that part's song from the top.
+Press **Space** (or click) to cycle through Part I, Part II and Part III. Part II has a chunky plasma, a typed-in ASCII banner that trades off between `f0rkz` and `sp00nz`, an InstallWiz 2.0 dialog copying warez until the disk fills up, and its own soundtrack: a 32-bar, 140 BPM, four-channel tracker-style chip tune in A minor (50 Hz arpeggios, a pulse bass, noise drums and an echoed square lead), also synthesized at startup. Each switch restarts that part's song from the top.
+
+## Part III — LAN Party
+
+A basement LAN in 132 BPM: a spinning wireframe lambda badge, an olive VGUI-style server browser (`de_dust`, `cs_office`, `2fort`, `well`, `lost temple`) with jittering pings, a killfeed of `f0rkz` / `sp00nz` grudges (AWP, crowbar, zerg rush, conc jump…), game announcements every four bars, and a scrolling green network grid. The soundtrack is a 32-bar big-beat breakbeat in D minor with a distorted reese bass, filtered chord stabs, a metallic FM clang and an echoed FM lead, synthesized at startup.
 
 ## Run
 

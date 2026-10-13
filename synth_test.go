@@ -125,21 +125,30 @@ func TestStatusMarqueeCoversFullViewportCycle(t *testing.T) {
 	}
 }
 
-func TestSynthSequelIsDeterministicAndBounded(t *testing.T) {
-	a, b := synthSequel(8000), synthSequel(8000)
-	secs := float64(sequelBars*4) * sequelBeatSeconds
-	if want := int(secs*8000) * 4; len(a) != want {
-		t.Fatalf("len = %d, want %d", len(a), want)
-	}
-	peak := 0.0
-	for i := 0; i < len(a); i += 2 {
-		if a[i] != b[i] || a[i+1] != b[i+1] {
-			t.Fatalf("PCM differs at byte %d", i)
+func TestSequelSongsAreDeterministicAndBounded(t *testing.T) {
+	for _, song := range []struct {
+		name        string
+		synth       func(int) []byte
+		bars        int
+		beatSeconds float64
+	}{
+		{"part II", synthSequel, sequelBars, sequelBeatSeconds},
+		{"part III", synthLAN, lanBars, lanBeatSeconds},
+	} {
+		a, b := song.synth(8000), song.synth(8000)
+		if want := int(float64(song.bars*4)*song.beatSeconds*8000) * 4; len(a) != want {
+			t.Fatalf("%s: len = %d, want %d", song.name, len(a), want)
 		}
-		peak = math.Max(peak, math.Abs(float64(int16(binary.LittleEndian.Uint16(a[i:i+2])))/32768))
-	}
-	if peak > .83 || peak < .1 {
-		t.Fatalf("peak = %v, expected audible headroom", peak)
+		peak := 0.0
+		for i := 0; i < len(a); i += 2 {
+			if a[i] != b[i] || a[i+1] != b[i+1] {
+				t.Fatalf("%s: PCM differs at byte %d", song.name, i)
+			}
+			peak = math.Max(peak, math.Abs(float64(int16(binary.LittleEndian.Uint16(a[i:i+2])))/32768))
+		}
+		if peak > .83 || peak < .1 {
+			t.Fatalf("%s: peak = %v, expected audible headroom", song.name, peak)
+		}
 	}
 }
 
