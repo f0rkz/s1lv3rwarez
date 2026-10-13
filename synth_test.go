@@ -124,3 +124,33 @@ func TestStatusMarqueeCoversFullViewportCycle(t *testing.T) {
 		t.Fatalf("marquee loop returns to %v, want %d", got, regionX+regionWidth)
 	}
 }
+
+func TestSynthSequelIsDeterministicAndBounded(t *testing.T) {
+	a, b := synthSequel(8000), synthSequel(8000)
+	secs := float64(sequelBars*4) * sequelBeatSeconds
+	if want := int(secs*8000) * 4; len(a) != want {
+		t.Fatalf("len = %d, want %d", len(a), want)
+	}
+	peak := 0.0
+	for i := 0; i < len(a); i += 2 {
+		if a[i] != b[i] || a[i+1] != b[i+1] {
+			t.Fatalf("PCM differs at byte %d", i)
+		}
+		peak = math.Max(peak, math.Abs(float64(int16(binary.LittleEndian.Uint16(a[i:i+2])))/32768))
+	}
+	if peak > .83 || peak < .1 {
+		t.Fatalf("peak = %v, expected audible headroom", peak)
+	}
+}
+
+func TestInstallStatusStallsOnDiskFull(t *testing.T) {
+	if f, p, full := installStatus(4); f != installFiles[0] || p != .5 || full {
+		t.Fatalf("beat 4 = %q %v %v", f, p, full)
+	}
+	if _, p, full := installStatus(float64(len(installFiles)*8) + 1); !full || p != 1 {
+		t.Fatalf("expected disk full stall, got %v %v", p, full)
+	}
+	if f, _, _ := installStatus(float64((len(installFiles) + 1) * 8)); f != installFiles[0] {
+		t.Fatalf("installer should restart on disk 2, got %q", f)
+	}
+}

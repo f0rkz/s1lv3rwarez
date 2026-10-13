@@ -192,7 +192,13 @@ func synthLoop(sr int) []byte {
 		putSample(pcm[i*4:i*4+2], l)
 		putSample(pcm[i*4+2:i*4+4], r)
 	}
-	// Crossfade a short boundary window to remove a discontinuity at loop wrap.
+	crossfadeLoop(pcm, sr)
+	return pcm
+}
+
+// crossfadeLoop blends a short boundary window to remove a discontinuity at loop wrap.
+func crossfadeLoop(pcm []byte, sr int) {
+	frames := len(pcm) / 4
 	cross := sr / 20
 	for j := 0; j < cross; j++ {
 		f := float64(j) / float64(cross)
@@ -203,7 +209,6 @@ func synthLoop(sr int) []byte {
 		v = int16(float64(endR)*(1-f) + float64(startR)*f)
 		binary.LittleEndian.PutUint16(pcm[(frames-cross+j)*4+2:(frames-cross+j)*4+4], uint16(v))
 	}
-	return pcm
 }
 
 func putSample(dst []byte, s float64) {
