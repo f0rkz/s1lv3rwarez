@@ -4,22 +4,37 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing version tag to publish (for example v1.0.0)
+        required: true
+        type: string
 
 permissions:
   contents: write
 
 jobs:
   release-windows-x64:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    env:
+      RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
     steps:
       - name: Check out source
         uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
 
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
           cache: true
+
+      - name: Install Linux native build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes libasound2-dev libgl1-mesa-dev pkg-config xorg-dev
 
       - name: Test and build Linux project
         run: |
@@ -54,9 +69,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" \
+          gh release create "$RELEASE_TAG" \
             --verify-tag \
-            --title "S1LV3RWAREZ - THE LOST CRACKTRO $GITHUB_REF_NAME" \
+            --title "S1LV3RWAREZ - THE LOST CRACKTRO $RELEASE_TAG" \
             --notes-file dist/RELEASE_NOTES.txt \
             dist/S1LV3RWAREZ-WIN64/S1LV3RWAREZ.exe \
             dist/S1LV3RWAREZ-WIN64.zip \

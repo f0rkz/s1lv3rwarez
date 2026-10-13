@@ -60,4 +60,4 @@ git tag -a v1.0.0 -m "S1LV3RWAREZ Windows x64 release"
 git push origin v1.0.0
 ```
 
-The workflow runs tests and a Linux build, cross-compiles and verifies the Windows package, then publishes a GitHub release with the standalone `.exe`, the ZIP containing the `.exe`, `README.NFO`, and `FILE_ID.DIZ`, and `SHA256SUMS.txt`. The workflow needs the repository's default `GITHUB_TOKEN` with `contents: write`; no separately stored release secret is required. Each `v*` tag is intended to be published once.
+The workflow installs the Linux development headers needed for Ebitengine, runs tests and a Linux build, cross-compiles and verifies the Windows package, then publishes a GitHub release with the standalone `.exe`, the ZIP containing the `.exe`, `README.NFO`, and `FILE_ID.DIZ`, and `SHA256SUMS.txt`. The workflow needs the repository's default `GITHUB_TOKEN` with `contents: write`; no separately stored release secret is required. A failed run can be retried from the Actions tab with **Windows release → Run workflow**, entering the existing tag.
