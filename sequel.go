@@ -60,7 +60,7 @@ func (g *Game) drawSequel(screen *ebiten.Image) {
 	g.drawASCIIName(screen, beats)
 	drawInstallWiz(screen, beats, g.frame)
 	g.drawScroller(screen, sequelScrollText)
-	drawHint(screen, "SPACE: PART I")
+	drawHint(screen, "SPACE: PART III")
 }
 
 func drawHint(screen *ebiten.Image, s string) {
