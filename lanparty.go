@@ -127,10 +127,14 @@ func (g *Game) drawLANTitle(screen *ebiten.Image) {
 
 // drawLambda spins an extruded wireframe lambda badge around the Y axis.
 func (g *Game) drawLambda(screen *ebiten.Image) {
-	const cx, cy, r, depth = 70, 90, 40.0, .12
-	a := float64(g.frame) * .03
-	sinA, cosA := math.Sin(a), math.Cos(a)
-	scale := r * (1 + .06*g.flash)
+	drawWire(screen, lambdaSegs, lambdaVerts, 70, 90, 40*(1+.06*g.flash), float64(g.frame)*.03, color.RGBA{255, 140, 20, 255})
+}
+
+// drawWire spins extruded 2D line art around the Y axis: back face, front
+// face, then depth struts at the given vertices, shaded by depth.
+func drawWire(screen *ebiten.Image, segs [][2]pt2, struts []pt2, cx, cy int, scale, angle float64, base color.RGBA) {
+	const depth = .12
+	sinA, cosA := math.Sin(angle), math.Cos(angle)
 	proj := func(p pt2, z float64) (int, int, float64) {
 		x := p.x*cosA - z*sinA
 		zz := p.x*sinA + z*cosA
@@ -139,16 +143,16 @@ func (g *Game) drawLambda(screen *ebiten.Image) {
 	}
 	shade := func(zz float64) color.RGBA {
 		b := clamp(.6-zz*.45, .2, 1)
-		return color.RGBA{uint8(255 * b), uint8(140 * b), uint8(20 * b), 255}
+		return color.RGBA{uint8(float64(base.R) * b), uint8(float64(base.G) * b), uint8(float64(base.B) * b), 255}
 	}
 	for _, z := range []float64{depth, -depth} { // back face first
-		for _, s := range lambdaSegs {
+		for _, s := range segs {
 			x0, y0, _ := proj(s[0], z)
 			x1, y1, zz := proj(s[1], z)
 			drawLine(screen, x0, y0, x1, y1, shade(zz))
 		}
 	}
-	for _, v := range lambdaVerts {
+	for _, v := range struts {
 		x0, y0, _ := proj(v, depth)
 		x1, y1, zz := proj(v, -depth)
 		drawLine(screen, x0, y0, x1, y1, shade(zz+.3))

@@ -28,6 +28,7 @@ var gifShots = []struct {
 	{1, 30 * sequelBeatSeconds},           // Part II: banner typing, installer
 	{2, 16 * 4 * lanBeatSeconds},          // Part III: lead enters
 	{3, (impactBeat - 6) * raBeatSeconds}, // Part IV: missile in, nuke lands
+	{4, 18 * qBeatSeconds},                // Part V: Q emblem turns, II -> III
 }
 
 const gifWarmup, gifFrames = 60, 90

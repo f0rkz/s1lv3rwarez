@@ -135,6 +135,7 @@ func TestSequelSongsAreDeterministicAndBounded(t *testing.T) {
 		{"part II", synthSequel, sequelBars, sequelBeatSeconds},
 		{"part III", synthLAN, lanBars, lanBeatSeconds},
 		{"part IV", synthRA, raBars, raBeatSeconds},
+		{"part V", synthQuake, qBars, qBeatSeconds},
 	} {
 		a, b := song.synth(8000), song.synth(8000)
 		if want := int(float64(song.bars*4)*song.beatSeconds*8000) * 4; len(a) != want {
@@ -162,5 +163,18 @@ func TestInstallStatusStallsOnDiskFull(t *testing.T) {
 	}
 	if f, _, _ := installStatus(float64((len(installFiles) + 1) * 8)); f != installFiles[0] {
 		t.Fatalf("installer should restart on disk 2, got %q", f)
+	}
+}
+
+func TestQuakeEmblemSwapsWhileEdgeOn(t *testing.T) {
+	for beats := 0.0; beats < qBars*4; beats += .25 {
+		_, before := qSpin(beats - .25)
+		angle, after := qSpin(beats)
+		if before != after && math.Abs(math.Cos(angle)) > 1e-9 {
+			t.Fatalf("version changed at beat %v while facing the camera (cos %v)", beats, math.Cos(angle))
+		}
+	}
+	if _, v := qSpin(4 + 16*3); v != 0 {
+		t.Fatalf("versions should cycle back to Quake 1, got %d", v)
 	}
 }
