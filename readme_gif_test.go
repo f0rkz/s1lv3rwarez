@@ -30,6 +30,7 @@ var gifShots = []struct {
 	{3, (impactBeat - 6) * raBeatSeconds}, // Part IV: missile in, nuke lands
 	{4, 18 * qBeatSeconds},                // Part V: Q emblem turns, II -> III
 	{5, 40 * f7BeatSeconds},               // Part VI: seats filling, bass in
+	{6, 56 * dcBeatSeconds},               // Part VII: KVM reconnects, rack filling
 }
 
 const gifWarmup, gifFrames = 60, 90

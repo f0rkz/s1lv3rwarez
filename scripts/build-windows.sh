@@ -75,6 +75,10 @@ Press SPACE (or click) to switch parts.
               200 seats, ~30,000 players a week, TF2 tourneys,
               Intel rigs, Tripwire beta keys, Killing Floor,
               ~$10k raised for March of Dimes.
+  PART VII .. DATACENTER
+              124 BPM minimal techno in F# minor
+              Atlanta, across the street from Telx. Rack, stack,
+              fight the KVM, install random packages. Fun gig.
 
 This is a retrospective creative project, not an actual recovered
 historical executable. Graphics and music are generated or embedded
@@ -89,7 +93,7 @@ f0rkz + sp00nz | EST. 1998 / RECOVERED 2026
 PART II: THE ZIP DISK STRIKES BACK
 PART III: LAN PARTY
 PART IV: WEB CLUB | PART V: QUAKECON
-PART VI: F7LANS
+PART VI: F7LANS | PART VII: DATACENTER
 Windows x64 | Run S1LV3RWAREZ.exe
 SPACE switches parts
 Retrospective creative project, made in 2026.
