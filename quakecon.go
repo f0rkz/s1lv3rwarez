@@ -222,7 +222,7 @@ func (g *Game) drawQuake(screen *ebiten.Image) {
 		drawText(screen, msg, x, 151, 1, color.RGBA{255, 200, 60, 255})
 	}
 	g.drawScroller(screen, qScrollText)
-	drawHint(screen, "SPACE: PART I")
+	drawHint(screen, "SPACE: PART VI")
 }
 
 // drawDallas is a scorched sky, a pulsing sun and a heat-shimmered skyline.
