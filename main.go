@@ -41,7 +41,9 @@ type Game struct {
 	music        *audio.Player
 	music2       *audio.Player
 	music3       *audio.Player
-	part         int // 0 = original cracktro, 1 = Part II, 2 = Part III
+	music4       *audio.Player
+	raField      *ebiten.Image
+	part         int // 0 = original cracktro, 1 = Part II, 2 = Part III, 3 = Part IV
 	plasma       *ebiten.Image
 	plasmaPixels []byte
 	musicStart   bool
@@ -109,6 +111,12 @@ func newGame() (*Game, error) {
 	if err != nil {
 		return nil, fmt.Errorf("create LAN party music player: %w", err)
 	}
+	pcm4 := synthRA(sampleRate)
+	g.music4, err = g.audioCtx.NewPlayer(audio.NewInfiniteLoop(bytes.NewReader(pcm4), int64(len(pcm4))))
+	if err != nil {
+		return nil, fmt.Errorf("create web club music player: %w", err)
+	}
+	g.raField = makeRAField()
 	return g, nil
 }
 
@@ -257,6 +265,9 @@ func (g *Game) Update() error {
 	case 2:
 		g.updateLAN()
 		return nil
+	case 3:
+		g.updateRA()
+		return nil
 	}
 
 	if g.logoReveal < g.logo.Bounds().Dy() {
@@ -285,7 +296,7 @@ func (g *Game) Update() error {
 // switchPart pauses the current tune and restarts the next part from the top.
 func (g *Game) switchPart() error {
 	g.player().Pause()
-	g.part = (g.part + 1) % 3
+	g.part = (g.part + 1) % 4
 	g.scrollX = virtualWidth
 	g.logoReveal = 0
 	g.flash = 0
@@ -303,6 +314,8 @@ func (g *Game) player() *audio.Player {
 		return g.music2
 	case 2:
 		return g.music3
+	case 3:
+		return g.music4
 	}
 	return g.music
 }
@@ -313,6 +326,8 @@ func (g *Game) scrollText() string {
 		return sequelScrollText
 	case 2:
 		return lanScrollText
+	case 3:
+		return raScrollText
 	}
 	return scrollerText
 }
@@ -335,6 +350,9 @@ func (g *Game) Draw(screen *ebiten.Image) {
 		return
 	case 2:
 		g.drawLAN(screen)
+		return
+	case 3:
+		g.drawRA(screen)
 		return
 	}
 	screen.Fill(color.RGBA{2, 3, 6, 255})

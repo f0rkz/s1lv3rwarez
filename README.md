@@ -23,13 +23,21 @@ The original hook follows an F minor / Db / Ab / Eb progression. The intro opens
 
 ![Part II: The Zip Disk Strikes Back](docs/part2.gif)
 
-Press **Space** (or click) to cycle through Part I, Part II and Part III. Part II has a chunky plasma, a typed-in ASCII banner that trades off between `f0rkz` and `sp00nz`, an InstallWiz 2.0 dialog copying warez until the disk fills up, and its own soundtrack: a 32-bar, 140 BPM, four-channel tracker-style chip tune in A minor (50 Hz arpeggios, a pulse bass, noise drums and an echoed square lead), also synthesized at startup. Each switch restarts that part's song from the top.
+Press **Space** (or click) to cycle through Parts I–IV. Part II has a chunky plasma, a typed-in ASCII banner that trades off between `f0rkz` and `sp00nz`, an InstallWiz 2.0 dialog copying warez until the disk fills up, and its own soundtrack: a 32-bar, 140 BPM, four-channel tracker-style chip tune in A minor (50 Hz arpeggios, a pulse bass, noise drums and an echoed square lead), also synthesized at startup. Each switch restarts that part's song from the top.
 
 ## Part III — LAN Party
 
 ![Part III: LAN Party](docs/part3.gif)
 
 A basement LAN in 132 BPM: a spinning wireframe lambda badge, an olive VGUI-style server browser (`de_dust`, `cs_office`, `2fort`, `well`, `lost temple`) with jittering pings, a killfeed of `f0rkz` / `sp00nz` grudges (AWP, crowbar, zerg rush, conc jump…), game announcements every four bars, and a scrolling green network grid. The soundtrack is a 32-bar big-beat breakbeat in D minor with a distorted reese bass, filtered chord stabs, a metallic FM clang and an echoed FM lead, synthesized at startup.
+
+## Part IV — Web Club
+
+![Part IV: Web Club](docs/part4.gif)
+
+Sixth grade web club: a lab full of brand-new donated IBM PCs, homepages with "under construction" GIFs, then Red Alert — which the teachers discovered too. One day an IBM executive's campus tour walked through just as our teacher jumped up, yelled that he'd nuked us all, and cheered. No more Red Alert after that.
+
+Part IV tells it as an RTS mission: a tile battlefield of blue (us) and red (the teachers) units trading tank fire, a sidebar with ticking credits, a radar sweep and a build queue (HTML, GIF, MIDI… NUKE READY), and an announcement feed that runs from "NEW IBM PCS ACQUIRED" to "ATOM BOMB LAUNCHED" to "MISSION FAILED: NO MORE RED ALERT". The missile arcs in from the silo, the screen whites out and shakes, and our base becomes a crater. The soundtrack is an original 32-bar, 120 BPM industrial march in E minor: distorted power-chord chugs, marching snare rolls, an air-raid siren, a swelling brass line, and a bomb on the downbeat of bar 25.
 
 ### README GIFs
 

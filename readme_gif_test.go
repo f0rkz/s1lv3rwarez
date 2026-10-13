@@ -24,9 +24,10 @@ var gifShots = []struct {
 	part    int
 	seconds float64
 }{
-	{0, 16 * 4 * beatSeconds},    // Part I main theme, logo revealed
-	{1, 30 * sequelBeatSeconds},  // Part II: banner typing, installer
-	{2, 16 * 4 * lanBeatSeconds}, // Part III: lead enters
+	{0, 16 * 4 * beatSeconds},             // Part I main theme, logo revealed
+	{1, 30 * sequelBeatSeconds},           // Part II: banner typing, installer
+	{2, 16 * 4 * lanBeatSeconds},          // Part III: lead enters
+	{3, (impactBeat - 6) * raBeatSeconds}, // Part IV: missile in, nuke lands
 }
 
 const gifWarmup, gifFrames = 60, 90

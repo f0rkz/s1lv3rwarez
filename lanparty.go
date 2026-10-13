@@ -99,7 +99,7 @@ func (g *Game) drawLAN(screen *ebiten.Image) {
 	drawKillfeed(screen, beats)
 	drawLANEvent(screen, beats)
 	g.drawScroller(screen, lanScrollText)
-	drawHint(screen, "SPACE: PART I")
+	drawHint(screen, "SPACE: PART IV")
 }
 
 // drawLANGrid is a faint scrolling network mesh, brighter on the kick.
