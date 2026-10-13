@@ -17,6 +17,10 @@ This vertical slice contains:
 
 The original hook follows an F minor / Db / Ab / Eb progression. The intro opens into a rolling groove, the acid line and backbeat arrive for the drive, the supersaw leads the main theme, then the breakdown and riser set up the final drop. The loop is about 76.8 seconds long. Audio is synthesized at startup; no external music files are needed.
 
+## Part II — The Zip Disk Strikes Back
+
+Press **Space** (or click) to flip between the original intro and the sequel. Part II has a chunky plasma, a typed-in ASCII banner that trades off between `f0rkz` and `sp00nz`, an InstallWiz 2.0 dialog copying warez until the disk fills up, and its own soundtrack: a 32-bar, 140 BPM, four-channel tracker-style chip tune in A minor (50 Hz arpeggios, a pulse bass, noise drums and an echoed square lead), also synthesized at startup. Each switch restarts that part's song from the top.
+
 ## Run
 
 ```bash

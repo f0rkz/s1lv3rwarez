@@ -13,6 +13,7 @@ import (
 
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/audio"
+	"github.com/hajimehoshi/ebiten/v2/inpututil"
 )
 
 const (
@@ -38,6 +39,10 @@ type Game struct {
 	glintPixels  []byte
 	audioCtx     *audio.Context
 	music        *audio.Player
+	music2       *audio.Player
+	part         int // 0 = original cracktro, 1 = Part II
+	plasma       *ebiten.Image
+	plasmaPixels []byte
 	musicStart   bool
 	rng          *rand.Rand
 	scrollX      float64
@@ -72,12 +77,14 @@ func newGame() (*Game, error) {
 
 	rng := rand.New(rand.NewSource(0x51_4c_56_33))
 	g := &Game{
-		logo:        logo,
-		logoMask:    logoMask,
-		glint:       ebiten.NewImage(logo.Bounds().Dx(), logo.Bounds().Dy()),
-		glintPixels: make([]byte, logo.Bounds().Dx()*logo.Bounds().Dy()*4),
-		rng:         rng,
-		scrollX:     virtualWidth,
+		logo:         logo,
+		logoMask:     logoMask,
+		glint:        ebiten.NewImage(logo.Bounds().Dx(), logo.Bounds().Dy()),
+		glintPixels:  make([]byte, logo.Bounds().Dx()*logo.Bounds().Dy()*4),
+		rng:          rng,
+		scrollX:      virtualWidth,
+		plasma:       ebiten.NewImage(virtualWidth/2, virtualHeight/2),
+		plasmaPixels: make([]byte, virtualWidth/2*virtualHeight/2*4),
 	}
 	g.stars = make([]Star, 180)
 	for i := range g.stars {
@@ -90,6 +97,11 @@ func newGame() (*Game, error) {
 	g.music, err = g.audioCtx.NewPlayer(loop)
 	if err != nil {
 		return nil, fmt.Errorf("create music player: %w", err)
+	}
+	pcm2 := synthSequel(sampleRate)
+	g.music2, err = g.audioCtx.NewPlayer(audio.NewInfiniteLoop(bytes.NewReader(pcm2), int64(len(pcm2))))
+	if err != nil {
+		return nil, fmt.Errorf("create sequel music player: %w", err)
 	}
 	return g, nil
 }
@@ -221,10 +233,20 @@ func (g *Game) Update() error {
 		g.musicStart = true
 	}
 
+	if inpututil.IsKeyJustPressed(ebiten.KeySpace) || inpututil.IsMouseButtonJustPressed(ebiten.MouseButtonLeft) {
+		if err := g.switchPart(); err != nil {
+			return err
+		}
+	}
+
 	g.frame++
 	g.scrollX -= 0.85
-	if g.scrollX < -float64(textWidth(scrollerText, 1)) {
+	if g.scrollX < -float64(textWidth(g.scrollText(), 1)) {
 		g.scrollX = virtualWidth
+	}
+	if g.part == 1 {
+		g.updateSequel()
+		return nil
 	}
 
 	if g.logoReveal < g.logo.Bounds().Dy() {
@@ -250,6 +272,35 @@ func (g *Game) Update() error {
 	return nil
 }
 
+// switchPart pauses the current tune and restarts the other part from the top.
+func (g *Game) switchPart() error {
+	g.player().Pause()
+	g.part ^= 1
+	g.scrollX = virtualWidth
+	g.logoReveal = 0
+	g.flash = 0
+	p := g.player()
+	if err := p.Rewind(); err != nil {
+		return err
+	}
+	p.Play()
+	return nil
+}
+
+func (g *Game) player() *audio.Player {
+	if g.part == 1 {
+		return g.music2
+	}
+	return g.music
+}
+
+func (g *Game) scrollText() string {
+	if g.part == 1 {
+		return sequelScrollText
+	}
+	return scrollerText
+}
+
 func (g *Game) beatPhase() float64 {
 	seconds := g.music.Position().Seconds()
 	beats := seconds * bpm / 60.0
@@ -262,13 +313,18 @@ func (g *Game) beatIndex() int {
 }
 
 func (g *Game) Draw(screen *ebiten.Image) {
+	if g.part == 1 {
+		g.drawSequel(screen)
+		return
+	}
 	screen.Fill(color.RGBA{2, 3, 6, 255})
 	g.drawRasterBars(screen)
 	g.drawStars(screen)
 	g.drawCRT(screen)
 	g.drawLogo(screen)
 	g.drawCredits(screen)
-	g.drawScroller(screen)
+	g.drawScroller(screen, scrollerText)
+	drawHint(screen, "SPACE: PART II")
 }
 
 func (g *Game) drawStars(screen *ebiten.Image) {
@@ -358,10 +414,10 @@ func marqueeX(elapsed float64, messageWidth, regionX, regionWidth, gap int, spee
 
 const scrollerText = "   ... S1LV3RWAREZ LIVES AGAIN ... BIG GREETZ TO EVERYONE WHO EVER TRADED A ZIP DISK IN A SCHOOL HALLWAY ... F0RKZ + SP00NZ ... SOFTWARE :: GAMES :: UTILITIES :: NO LIMITS ...   "
 
-func (g *Game) drawScroller(screen *ebiten.Image) {
+func (g *Game) drawScroller(screen *ebiten.Image, text string) {
 	x := g.scrollX
-	for i := 0; i < len(scrollerText); i++ {
-		ch := scrollerText[i]
+	for i := 0; i < len(text); i++ {
+		ch := text[i]
 		y := 167 + math.Sin((x+float64(i*6))*0.065+float64(g.frame)*0.06)*5
 		shade := uint8(170 + 70*math.Sin(float64(i)*0.4+float64(g.frame)*0.03))
 		drawGlyph(screen, ch, int(x)+i*6, int(y), 1, color.RGBA{shade, shade, 255, 255})
