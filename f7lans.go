@@ -87,7 +87,7 @@ func (g *Game) drawF7(screen *ebiten.Image) {
 	drawF7Meters(screen, raised, players)
 	drawAnnouncement(screen, f7Events[int(beats/16)%len(f7Events)], beats, color.RGBA{120, 230, 255, 255})
 	g.drawScroller(screen, f7ScrollText)
-	drawHint(screen, "SPACE: PART I")
+	drawHint(screen, "SPACE: PART VII")
 }
 
 // drawLasers is a dark venue with two banks of sweeping lasers.

@@ -23,7 +23,7 @@ The original hook follows an F minor / Db / Ab / Eb progression. The intro opens
 
 ![Part II: The Zip Disk Strikes Back](docs/part2.gif)
 
-Press **Space** (or click) to cycle through Parts I–VI. Part II has a chunky plasma, a typed-in ASCII banner that trades off between `f0rkz` and `sp00nz`, an InstallWiz 2.0 dialog copying warez until the disk fills up, and its own soundtrack: a 32-bar, 140 BPM, four-channel tracker-style chip tune in A minor (50 Hz arpeggios, a pulse bass, noise drums and an echoed square lead), also synthesized at startup. Each switch restarts that part's song from the top.
+Press **Space** (or click) to cycle through Parts I–VII. Part II has a chunky plasma, a typed-in ASCII banner that trades off between `f0rkz` and `sp00nz`, an InstallWiz 2.0 dialog copying warez until the disk fills up, and its own soundtrack: a 32-bar, 140 BPM, four-channel tracker-style chip tune in A minor (50 Hz arpeggios, a pulse bass, noise drums and an echoed square lead), also synthesized at startup. Each switch restarts that part's song from the top.
 
 ## Part III — LAN Party
 
@@ -54,6 +54,14 @@ A wireframe Q emblem spins over a scorched sky and a heat-shimmered Dallas skyli
 A few years older, and running the LAN parties ourselves as F7LANS: 200-person events, game servers seeing roughly 30,000 players a week, TF2 tourneys, rigs shipped in by Intel to play on, and Tripwire beta keys — which is why everyone played Killing Floor. One event raised about $10,000 for March of Dimes.
 
 A wireframe F7 badge spins under a sweeping laser rig, next to a 200-seat check-in map (RED side, BLU side) filling up as people arrive, a March of Dimes meter climbing to $10,000 and a weekly player counter rolling up to 30,000. The soundtrack is an original 32-bar, 128 BPM electro house track in G minor: a pumping four-on-the-floor kick, flutter claps, offbeat open hats, a sidechained detuned bass wobbling on eighths, offbeat chord stabs and an echoed pulse-width lead.
+
+## Part VII — Datacenter
+
+![Part VII: Datacenter](docs/part7.gif)
+
+Grown up and working the datacenter floor in Atlanta, right across the street from the Telx building (one of the OG root DNS spots back in the day, iirc). All day grinding for CDNs: racking and stacking servers, and fighting terrible KVM interfaces to install random packages. Fun gig.
+
+A 24U rack fills from the bottom, one server sliding in per bar, next to a spinning wireframe globe whose CDN points of presence ping on the kick (Atlanta labelled). A Java KVM console types out a session (`yum install`, `apt-get: not found`, `mkfs.xfs`, `reboot`) and every four bars freezes, tears and shows RECONNECTING... The soundtrack is an original 32-bar, 124 BPM minimal techno track in F# minor, built on fan noise and 60 Hz hum: hard-drive seek clicks, PC-speaker POST beeps (a 1-long-2-short beep code in the breakdown), a rolling sidechained sub bass and an echoed square arpeggio.
 
 ### README GIFs
 

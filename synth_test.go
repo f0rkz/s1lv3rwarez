@@ -137,6 +137,7 @@ func TestSequelSongsAreDeterministicAndBounded(t *testing.T) {
 		{"part IV", synthRA, raBars, raBeatSeconds},
 		{"part V", synthQuake, qBars, qBeatSeconds},
 		{"part VI", synthF7, f7Bars, f7BeatSeconds},
+		{"part VII", synthDatacenter, dcBars, dcBeatSeconds},
 	} {
 		a, b := song.synth(8000), song.synth(8000)
 		if want := int(float64(song.bars*4)*song.beatSeconds*8000) * 4; len(a) != want {
@@ -177,5 +178,17 @@ func TestQuakeEmblemSwapsWhileEdgeOn(t *testing.T) {
 	}
 	if _, v := qSpin(4 + 16*3); v != 0 {
 		t.Fatalf("versions should cycle back to Quake 1, got %d", v)
+	}
+}
+
+func TestKVMFreezesWhileReconnecting(t *testing.T) {
+	frozen, _ := kvmClock(10)
+	for beats := 10.0; beats < 13; beats += .25 {
+		if c, lag := kvmClock(beats); c != frozen || !lag {
+			t.Fatalf("beat %v: clock %v lagging %v, want frozen at %v", beats, c, lag, frozen)
+		}
+	}
+	if c, lag := kvmClock(16 + 13); lag || c != 23 {
+		t.Fatalf("second cycle resumes at %v (lagging %v), want 23", c, lag)
 	}
 }
