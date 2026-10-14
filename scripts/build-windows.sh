@@ -70,6 +70,11 @@ Press SPACE (or click) to switch parts.
               110 BPM dark industrial electro in C minor
               Annual trips to Dallas. Why Dallas? The surface
               of the sun was already booked.
+  PART VI  .. F7LANS
+              128 BPM electro house in G minor
+              200 seats, ~30,000 players a week, TF2 tourneys,
+              Intel rigs, Tripwire beta keys, Killing Floor,
+              ~$10k raised for March of Dimes.
 
 This is a retrospective creative project, not an actual recovered
 historical executable. Graphics and music are generated or embedded
@@ -84,6 +89,7 @@ f0rkz + sp00nz | EST. 1998 / RECOVERED 2026
 PART II: THE ZIP DISK STRIKES BACK
 PART III: LAN PARTY
 PART IV: WEB CLUB | PART V: QUAKECON
+PART VI: F7LANS
 Windows x64 | Run S1LV3RWAREZ.exe
 SPACE switches parts
 Retrospective creative project, made in 2026.

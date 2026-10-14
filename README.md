@@ -23,7 +23,7 @@ The original hook follows an F minor / Db / Ab / Eb progression. The intro opens
 
 ![Part II: The Zip Disk Strikes Back](docs/part2.gif)
 
-Press **Space** (or click) to cycle through Parts I–V. Part II has a chunky plasma, a typed-in ASCII banner that trades off between `f0rkz` and `sp00nz`, an InstallWiz 2.0 dialog copying warez until the disk fills up, and its own soundtrack: a 32-bar, 140 BPM, four-channel tracker-style chip tune in A minor (50 Hz arpeggios, a pulse bass, noise drums and an echoed square lead), also synthesized at startup. Each switch restarts that part's song from the top.
+Press **Space** (or click) to cycle through Parts I–VI. Part II has a chunky plasma, a typed-in ASCII banner that trades off between `f0rkz` and `sp00nz`, an InstallWiz 2.0 dialog copying warez until the disk fills up, and its own soundtrack: a 32-bar, 140 BPM, four-channel tracker-style chip tune in A minor (50 Hz arpeggios, a pulse bass, noise drums and an echoed square lead), also synthesized at startup. Each switch restarts that part's song from the top.
 
 ## Part III — LAN Party
 
@@ -46,6 +46,14 @@ Part IV tells it as an RTS mission: a tile battlefield of blue (us) and red (the
 The annual August trip to Dallas. Why Dallas? Because the surface of the sun was already booked.
 
 A wireframe Q emblem spins over a scorched sky and a heat-shimmered Dallas skyline (Reunion Tower included). Each time it turns edge-on, the numeral swaps: 1 → II → III → 4 → back to 1. A drop-down console tracks the year and the outside temperature above a stream of obituaries (`sp00nz rides f0rkz's rocket`, `f0rkz turned into hot slag`…), and the announcements run from "WHY DALLAS?" to "THE SURFACE OF THE SUN WAS ALREADY BOOKED" to "SEE YOU NEXT YEAR, DALLAS". The soundtrack is an original 32-bar, 110 BPM dark industrial electro in C minor: an ambient drone and hot wind, metallic clanks, a pounding kick, a sixteenth-note EBM bass and a zapping detuned lead.
+
+## Part VI — F7LANS
+
+![Part VI: F7LANS](docs/part6.gif)
+
+A few years older, and running the LAN parties ourselves as F7LANS: 200-person events, game servers seeing roughly 30,000 players a week, TF2 tourneys, rigs shipped in by Intel to play on, and Tripwire beta keys — which is why everyone played Killing Floor. One event raised about $10,000 for March of Dimes.
+
+A wireframe F7 badge spins under a sweeping laser rig, next to a 200-seat check-in map (RED side, BLU side) filling up as people arrive, a March of Dimes meter climbing to $10,000 and a weekly player counter rolling up to 30,000. The soundtrack is an original 32-bar, 128 BPM electro house track in G minor: a pumping four-on-the-floor kick, flutter claps, offbeat open hats, a sidechained detuned bass wobbling on eighths, offbeat chord stabs and an echoed pulse-width lead.
 
 ### README GIFs
 
